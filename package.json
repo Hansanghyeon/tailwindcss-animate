@@ -1,0 +1,23 @@
+{
+ "name": "@hyeon/tailwindcss-animate",
+ "version": "1.0.3",
+ "main": "index.js",
+ "files": [
+  "index.js",
+  "index.d.ts"
+ ],
+ "repository": "git@github.com:Hansanghyeon/tailwindcss-animate.git",
+ "author": "Hansanghyeon <999@hyeon.pro>",
+ "license": "MIT",
+ "peerDependencies": {
+  "tailwindcss": "^3.0.0"
+ },
+ "devDependencies": {
+  "tailwindcss": "^3.4.3"
+ },
+ "publishConfig": {
+  "registry": "https://registry.npmjs.org/",
+  "access": "public"
+ },
+ "dependencies": {}
+}
