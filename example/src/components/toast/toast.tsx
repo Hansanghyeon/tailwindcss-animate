@@ -13,7 +13,6 @@ export type ToastPositionType =
   | 'top-left'
   | 'top-right'
   | 'middle-left'
-  | 'middle-center'
   | 'middle-right'
 interface ViewportProps
   extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport> {}
@@ -44,12 +43,13 @@ const POSITION_MAP = {
     'transition-all data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=end]:animate-out data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-full data-[state=open]:sm:slide-in-from-top-full data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-left-full',
   'top-right':
     'transition-all data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=end]:animate-out data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-full data-[state=open]:sm:slide-in-from-top-full data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full',
-  'middle-right':
-    'transition-all data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=end]:animate-out data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-full data-[state=open]:sm:slide-in-from-top-full data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full',
-  'middle-center':
-    'transition-all data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=end]:animate-out data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-full data-[state=open]:sm:slide-in-from-top-full data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full',
   'middle-left':
     'transition-all data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=end]:animate-out data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-full data-[state=open]:sm:slide-in-from-top-full data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full',
+  'middle-right': `
+    transition-all data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=end]:animate-out
+    data-[state=open]:animate-in-right
+    data-[state=closed]:animate-out-right
+  `,
 } satisfies Record<ToastPositionType, string>
 
 type ToastVariantType = 'default' | 'destructive' | 'clear'
@@ -109,6 +109,8 @@ const Root = React.forwardRef<
             'sm:top-0 sm:bottom-auto sm:left-1/2 sm:-translate-x-1/2',
           position === 'top-left' && 'sm:top-0 sm:bottom-auto sm:left-0',
           position === 'top-right' && 'sm:top-0 sm:bottom-auto sm:right-0',
+          position === 'middle-right' &&
+            'sm:top-1/2 sm:bottom-1/2 sm:right-0',
           modalOver ? 'z-[51]' : 'z-[49]'
         )}
         children={props.children}

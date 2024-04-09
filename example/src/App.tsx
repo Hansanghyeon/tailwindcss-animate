@@ -46,21 +46,30 @@ function App() {
     toasts,
     A.filter((toast) => toast.position === 'middle-left')
   )
-  // const middleCenter = pipe(
-  //   toasts,
-  //   A.filter((toast) => toast.position === 'middle-center')
-  // )
   const middleRight = pipe(
     toasts,
     A.filter((toast) => toast.position === 'middle-right')
   )
+
+  const onBottomCenterClick = useCallback(() => {
+    toast({
+      id: 'bulk',
+      variant: 'clear',
+      duration: 100000,
+      position: 'bottom-center',
+      modalOver: true,
+      component: (
+        <Banner />
+      ),
+    })
+  }, [])
 
   const onMidleCenterClick = useCallback(() => {
     toast({
       id: 'bulk',
       variant: 'clear',
       duration: 100000,
-      position: 'bottom-center',
+      position: 'middle-right',
       modalOver: true,
       component: (
         <Banner />
@@ -87,13 +96,13 @@ function App() {
         <Button className='p-0 w-[24px] h-[24px]' />
       </div>
       <div>
-        <Button className='p-0 w-[24px] h-[24px]' />
-      </div>
-      <div>
-        <Button className='p-0 w-[24px] h-[24px]' />
-      </div>
-      <div>
         <Button onClick={onMidleCenterClick} className='p-0 w-[24px] h-[24px]' />
+      </div>
+      <div>
+        <Button className='p-0 w-[24px] h-[24px]' />
+      </div>
+      <div>
+        <Button onClick={onBottomCenterClick} className='p-0 w-[24px] h-[24px]' />
       </div>
       <div>
         <Button className='p-0 w-[24px] h-[24px]' />
