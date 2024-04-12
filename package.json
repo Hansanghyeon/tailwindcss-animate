@@ -1,9 +1,9 @@
 {
  "name": "@hyeon/tailwindcss-animate",
- "version": "1.0.4",
- "main": "index.js",
+ "version": "1.1.0",
+ "main": "src/index.js",
  "files": [
-  "index.js",
+  "src/index.js",
   "index.d.ts"
  ],
  "repository": "git@github.com:Hansanghyeon/tailwindcss-animate.git",
