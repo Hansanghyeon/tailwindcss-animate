@@ -1,8 +1,8 @@
 
 function filterDefault(values) {
-	return Object.fromEntries(
-		Object.entries(values).filter(([key]) => key !== "DEFAULT"),
-	)
+  return Object.fromEntries(
+    Object.entries(values).filter(([key]) => key !== "DEFAULT"),
+  )
 }
 
 module.exports = ({ addUtilities, matchUtilities, theme }) => {

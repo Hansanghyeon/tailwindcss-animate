@@ -1,7 +1,7 @@
 module.exports = ({ matchUtilities, theme }) => matchUtilities({
-    'animate-duration': value => ({
-        'animation-duration': value,
-    }),
+  'animate-duration': value => ({
+    'animation-duration': value,
+  }),
 }, {
-    values: theme('animationDuration'),
+  values: theme('animationDuration'),
 });
